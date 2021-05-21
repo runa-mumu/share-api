@@ -7,8 +7,6 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
 
-
-
 class RegisterController extends Controller
 {
     public function post(Request $request)
@@ -19,7 +17,8 @@ class RegisterController extends Controller
             "name" => $request->name,
             "email" => $request->email,
             "password" => $hashed_password,
-            "creared_at" => $now,
+            "profile" => $request->profile,
+            "created_at" => $now,
             "updated_at" => $now,
         ];
         DB::table('users')->insert($param);
